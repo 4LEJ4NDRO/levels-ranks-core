@@ -145,7 +145,7 @@ void ConnectToDatabase(Database hDatabase, const char[] sError, any NULL)
 
 	Transaction hTransaction = new Transaction();
 
-	FormatEx(sQuery, sizeof(sQuery), SQL_CreateTable, g_sTableName, g_bDatabaseSQLite ? NULL_STRING : " COLLATE 'utf8_general_ci'", g_bDatabaseSQLite ? NULL_STRING : g_Settings[LR_DB_Allow_UTF8MB4] ? " COLLATE 'utf8mb4_general_ci'" : " COLLATE 'utf8_general_ci'");
+	FormatEx(sQuery, sizeof(sQuery), SQL_CreateTable, g_sTableName, g_bDatabaseSQLite ? NULL_STRING : " COLLATE 'utf8mb4_general_ci'", g_bDatabaseSQLite ? NULL_STRING : g_Settings[LR_DB_Allow_UTF8MB4] ? " COLLATE 'utf8mb4_general_ci'" : " COLLATE 'utf8mb4_general_ci'");
 	hTransaction.AddQuery(sQuery);
 
 	FormatEx(sQuery, sizeof(sQuery), SQL_GetCountPlayers, g_sTableName);
@@ -155,7 +155,7 @@ void ConnectToDatabase(Database hDatabase, const char[] sError, any NULL)
 	{
 		char sCharset[8];
 
-		sCharset = g_Settings[LR_DB_Allow_UTF8MB4] ? "utf8mb4" : "utf8";
+		sCharset = g_Settings[LR_DB_Allow_UTF8MB4] ? "utf8mb4" : "utf8mb4";
 
 		if(!hDatabase.SetCharset(sCharset))
 		{
